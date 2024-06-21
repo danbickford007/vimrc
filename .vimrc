@@ -1,3 +1,7 @@
+" Required bundles for this dotfile
+" ack.vim                  ctrlp.vim                syntastic                vim-fugitive
+" awesome-vim-colorschemes nerdtree                 vim-elixir               vim-ripgrep
+
 execute pathogen#infect()
 
 set viminfo="NONE"
