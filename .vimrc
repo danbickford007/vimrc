@@ -1,4 +1,4 @@
-" Required bundles for this dotfile
+" Required bundles
 " ack.vim                  ctrlp.vim                syntastic                vim-fugitive
 " awesome-vim-colorschemes nerdtree                 vim-elixir               vim-ripgrep
 
@@ -20,7 +20,7 @@ set guifont=Monico
 set hidden
 map ,ln :set number<cr>
 map ,nl :set nonumber<cr>
-map ,t :w \|!rspec %<cr>
+map ,t :w \|!bundle exec rake test TEST=%<cr>
 map ,<right> :bn<cr>
 map ,<left> :bp<cr>
 map ,a :Ack
@@ -163,3 +163,9 @@ let g:syntastic_check_on_wq = 0
 au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
 au BufRead,BufNewFile *.eex,*.heex,*.leex,*.sface,*.lexs set filetype=eelixir
 au BufRead,BufNewFile mix.lock set filetype=elixir
+
+" makes cntrl-p use rg which is way faster.
+if executable('rg')
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  let g:ctrlp_use_caching = 0
+endif
